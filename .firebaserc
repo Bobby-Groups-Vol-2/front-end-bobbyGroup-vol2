@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "nekofarm3d-official"
+  },
+  "targets": {
+    "nekofarm3d-official": {
+      "hosting": {
+        "dev": [
+          "nekofarm3d-dev"
+        ],
+        "production": [
+          "nekofarm3d-official"
+        ]
+      }
+    }
+  }
+}
