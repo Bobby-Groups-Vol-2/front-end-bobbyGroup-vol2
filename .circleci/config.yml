@@ -1,37 +1,98 @@
-version: 2
+version: 2.1
 
-jobs:
-  ci:
+executors:
+  node14:
     docker:
-      - image: cimg/node:lts
+      - image: cimg/node:14.17.0
+    working_directory: ~/project
+
+commands:
+  # env-prod:
+  #   description: "test .env variable"
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: "What a number in this .env"
+  #         command: touch .env ; echo "API_URL=$API_URL_PROD" >> .env
+  #     - run:
+  #         name: "Check file .env"
+  #         command: ls -la ; cat .env
+  # env-dev:
+  #   description: "test .env variable"
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: "What a number in this .env"
+  #         command: touch .env ; echo "API_URL=$API_URL_DEV" >> .env ;
+  #     - run:
+  #         name: "Check file .env"
+  #         command: cat .env
+  build:
+    description: "Builds the project"
     steps:
       - checkout
-
       - restore_cache:
           keys:
-            - yarn-v1-{{ checksum "yarn.lock" }}
-
+            # Find a yarn.lock cache
+            - v1-npm-deps-{{ checksum "yarn.lock" }}
+            # Fallback cache to be used
+            - v1-npm-deps-
       - run:
-          name: Install dependencies
-          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
-
+          name: Install Dependencies
+          command: yarn install
       - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}
+          key: v1-npm-deps-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
-
+            - ./node_modules
       - run:
-          name: Run linter
-          command: yarn lint
+          name: Firebase install
+          command: yarn add firebase-tools
+      - run:
+          name: Build for current environment.
+          command: yarn build ; yarn generate 
+          build:
+      - run:
+          name: check that firebase.json
+          command: cat firebase.json
+  deploy:
+    description: "Deploy project to the designated environment"
+    parameters:
+      env:
+        type: string
+        default: "dev"
+    steps:
+      - checkout
+      - run:
+          name: Firebase Deploy
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --non-interactive --only hosting:<< parameters.env >> 
 
+jobs:
+  build-deploy-dev:
+    executor: node14
+    steps:
+      # - env-dev
+      - build
+      - deploy:
+          env: "dev"
+  build-deploy-production:
+    executor: node14
+    steps:
+      # - env-prod
+      - build
+      - deploy:
+          env: "production"
 
 workflows:
   version: 2
-  ci:
+  dev:
     jobs:
-      - ci:
+      - build-deploy-dev:
           filters:
             branches:
-              only:
-                - main
-                - master
+              only: dev
+  production:
+    jobs:
+      - build-deploy-production:
+          filters:
+            branches:
+              only: main
