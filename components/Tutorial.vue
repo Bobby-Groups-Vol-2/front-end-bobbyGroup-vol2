@@ -1,9 +1,5 @@
 <!-- Please remove this file from your project -->
 <template>
-<<<<<<< HEAD
-  <div>
-    <h1>Test</h1>
-=======
   <div
     class="
       relative
@@ -125,6 +121,5 @@
         ></a>
       </div>
     </div>
->>>>>>> 610e6fcf2ead9aebed4bd28f0e2a1c773a32672d
   </div>
 </template>
