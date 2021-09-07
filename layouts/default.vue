@@ -1,6 +1,8 @@
 <template>
   <div class="relative min-h-screen">
-    <Nuxt class="relative top-10vh" />
+    <div class="flex flex-col">
+      <Nuxt class="relative top-10vh" />
+    </div>
   </div>
 </template>
 <script>

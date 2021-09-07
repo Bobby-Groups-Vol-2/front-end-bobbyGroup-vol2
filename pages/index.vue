@@ -1,5 +1,9 @@
 <template>
-  <Tutorial />
+  <div class="flex flex-row">
+    <div>
+      <Card />
+    </div>
+  </div>
 </template>
 
 <script>
