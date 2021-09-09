@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-row">
-    <div>
-      <Card />
-    </div>
-  </div>
+  <div class="flex flex-row"><nuxt-link to="cat">cat</nuxt-link></div>
 </template>
 
 <script>
-export default {};
+export default {
+  // methods: {
+  //   async route() {
+  //     await this.$router.push('/cat');
+  //   },
+  // },
+};
 </script>
