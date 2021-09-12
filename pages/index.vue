@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row"><nuxt-link to="cat">cat</nuxt-link></div>
+  <div class="flex flex-row"><nuxt-link to="cat">cats</nuxt-link></div>
 </template>
 
 <script>
