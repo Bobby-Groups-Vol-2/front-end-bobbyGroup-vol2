@@ -1,5 +1,14 @@
 <template>
-  <div class="py-5 pl-10 bg-fauxlavender rounded-4xl grid grid-cols-3 gap-3">
+  <div
+    class="
+      py-5
+      pl-10
+      bg-fauxlavender
+      rounded-4xl
+      lg:grid lg:grid-cols-3
+      lg:gap-3
+    "
+  >
     <div>
       <label class="label">
         <span class="label-text text-black">Name</span>

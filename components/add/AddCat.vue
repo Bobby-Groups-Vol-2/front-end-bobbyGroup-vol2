@@ -1,5 +1,14 @@
 <template>
-  <div class="py-5 pl-10 grid grid-cols-3 gap-3 bg-fauxlavender rounded-4xl">
+  <div
+    class="
+      py-5
+      pl-10
+      lg:grid lg:grid-cols-3
+      lg:gap-3
+      bg-fauxlavender
+      rounded-4xl
+    "
+  >
     <div>
       <!-- //? Name -->
       <label class="label">
@@ -119,9 +128,9 @@ export default {
         catimage: "catTest.jpg",
         price: 0,
         gender: "",
-        status: "T",
+        status: "F",
         dob: "2021-08-22",
-        certificateimage: "",
+        certificateimage: "catCer.png",
         orders_orderid: 1,
         speciesid: 0,
         speciesname: "",
@@ -185,6 +194,7 @@ export default {
       const res = await this.callApi("post", "/api/cats", cat);
       if (res.status >= 200) {
         alert("Success");
+        location.reload();
       }
     },
   },

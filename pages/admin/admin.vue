@@ -1,6 +1,6 @@
 <template>
-  <div class="rounded-4xl">
-    <table class="rounded-t-lg m-5 w-2/3 mx-auto bg-gray-200 text-gray-800">
+  <div class="mt-10">
+    <table class="m-5 w-4/5 mx-auto bg-white text-gray-800">
       <tr class="text-left border-b-2 border-gray-300">
         <th class="px-2 py-3">ID</th>
         <th class="px-2 py-3">Name</th>
@@ -15,7 +15,7 @@
       <tr
         v-for="cat in cats"
         :key="cat.id"
-        class="bg-gray-100 border-b border-gray-200"
+        class="bg-fauxlavender border-b border-gray-200 rounded-4xl"
       >
         <td class="px-2 py-3">{{ cat.catid }}</td>
         <td class="px-2 py-3">
@@ -29,6 +29,7 @@
           <a>
             <svg
               v-if="certificateCheck(cat.certificateimage)"
+              class="ml-7"
               xmlns="http://www.w3.org/2000/svg"
               width="12"
               height="12"
@@ -44,6 +45,7 @@
           <a>
             <svg
               v-if="orderCheck(cat.status)"
+              class="ml-5"
               xmlns="http://www.w3.org/2000/svg"
               width="12"
               height="12"
@@ -59,7 +61,9 @@
           <button class="btn bg-yellow-500">Edit</button>
         </td>
         <td>
-          <button class="btn bg-red-600">Delete</button>
+          <button class="btn bg-red-600" @click="deleteCat(cat.catid)">
+            Delete
+          </button>
         </td>
       </tr>
     </table>
@@ -90,6 +94,10 @@ export default {
         return true;
       }
       return false;
+    },
+    deleteCat(id) {
+      this.callApi("delete", "/api/cats/" + id);
+      location.reload();
     },
   },
 };

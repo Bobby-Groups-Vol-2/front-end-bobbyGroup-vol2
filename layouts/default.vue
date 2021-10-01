@@ -1,6 +1,8 @@
 <template>
   <div class="relative min-h-screen">
-    <Nuxt class="relative top-10vh" />
+    <Navbar>
+      <Nuxt class="relative top-10vh" />
+    </Navbar>
   </div>
 </template>
 <script>
