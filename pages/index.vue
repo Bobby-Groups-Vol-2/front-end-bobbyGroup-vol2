@@ -1,5 +1,9 @@
 <template>
-  <div class="flex flex-row"><nuxt-link to="cat">cat</nuxt-link></div>
+  <div class="flex flex-row">
+    <nuxt-link to="cat">cat</nuxt-link>
+    <nuxt-link to="auth/login">login</nuxt-link>
+    <nuxt-link to="admin/admin">admin</nuxt-link>
+  </div>
 </template>
 
 <script>
