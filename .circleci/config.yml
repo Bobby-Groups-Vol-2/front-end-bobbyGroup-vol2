@@ -17,16 +17,16 @@ commands:
   #     - run:
   #         name: "Check file .env"
   #         command: ls -la ; cat .env
-  # env-dev:
-  #   description: "test .env variable"
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: "What a number in this .env"
-  #         command: touch .env ; echo "API_URL=$API_URL_DEV" >> .env ;
-  #     - run:
-  #         name: "Check file .env"
-  #         command: cat .env
+  env-dev:
+    description: "test .env variable"
+    steps:
+      - checkout
+      - run:
+          name: "What a number in this .env"
+          command: touch .env ; echo "API_URL=$API_URL_DEV" >> .env ;
+      - run:
+          name: "Check file .env"
+          command: cat .env
   build:
     description: "Builds the project"
     steps:
@@ -70,7 +70,7 @@ jobs:
   build-deploy-dev:
     executor: node14
     steps:
-      # - env-dev
+      - env-dev
       - build
       - deploy:
           env: "dev"
