@@ -25,7 +25,7 @@
 
     <div>
       <label class="label">
-        <span class="label-text text-black">Species</span>
+        <span class="label-text text-black">Patterns</span>
       </label>
       <div class="dropdown">
         <div tabindex="0" class="btn">{{ patternname }}</div>
@@ -84,6 +84,7 @@ export default {
       if (res.status >= 200) {
         await this.callApi("post", "/api/owns", this.owns);
         alert("Success");
+        location.reload();
       }
     },
     mapPattern(patternid, speciesid, patternName) {

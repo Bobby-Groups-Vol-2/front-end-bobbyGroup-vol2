@@ -48,6 +48,7 @@ export default {
       const res = await this.callApi("post", "/api/patterns", patterns);
       if (res.status >= 200) {
         alert("Success");
+        location.reload();
       }
     },
   },
