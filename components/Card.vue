@@ -93,13 +93,14 @@
 
 <script>
 export default {
+  props: {
+    catName: { type: String, default: "no name" },
+    catSpecies: { type: String, default: "no species" },
+  },
   data() {
     return {
       isOn: false,
     };
-  },
-  mounted() {
-    console.log(this.isOn);
   },
 };
 </script>
