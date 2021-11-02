@@ -9,6 +9,9 @@
 </template>
 
 <style scoped>
+span:hover{
+  color: #A55521;
+}
 span{
   font-weight: bold;
   font-family: 'Prompt', sans-serif;
