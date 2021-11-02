@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col mt-5">
     <div class="flex flex-row justify-start text-2xl font-bold">
-      <Logo class="ml-20" />
+      <nuxt-link to="/cat"><Logo class="ml-20" /></nuxt-link>
       <nuxt-link to="/cat" class="ml-20 mt-10">cat</nuxt-link>
       <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
       <nuxt-link to="/admin/admin" class="ml-20 mt-10">admin</nuxt-link>

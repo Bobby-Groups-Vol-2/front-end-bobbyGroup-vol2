@@ -10,8 +10,16 @@ export default {};
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Prompt");
+
 html {
-  background-color: #00a4b7;
-  background-image: linear-gradient(#00a4b7, #7eb58b, #0b3939);
+  font-family: "Prompt", sans-serif;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #d99058;
+  background-image: linear-gradient(180deg, #d99058 0%, #f8de7e 74%);
 }
 </style>
