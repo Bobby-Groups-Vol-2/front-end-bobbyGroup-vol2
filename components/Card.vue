@@ -113,7 +113,7 @@ export default {
 
 .detail-button{
   background-color: transparent;
-  color:#C34F7C
+  color:#C34F7C;
 ;
 }
 .reserve-button {
