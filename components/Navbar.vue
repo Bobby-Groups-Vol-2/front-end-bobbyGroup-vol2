@@ -48,24 +48,28 @@
 
 <style scoped>
 .register-button {
-  background-color: #43362d;
-  color: #faf2c5;
+   color: #9e5f43;
+   background-color: aliceblue;
 }
 
 .register-button:hover {
-  background-color: #faf2c5;
-  color: #43362d;
-  border: transparent;
-}
-
-.log-in-button {
-  color: #9e5f43;
-}
-
-.log-in-button:hover {
   border: transparent;
   color: white;
   background-color: #9e5f43;
+}
+
+.log-in-button {
+   background-color: #43362d;
+  color: #faf2c5;
+
+ 
+}
+
+.log-in-button:hover {
+   background-color: #faf2c5;
+  color: #43362d;
+  border: transparent;
+  
 }
 
 a:hover {

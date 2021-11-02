@@ -2,13 +2,12 @@
   <div
     class="
       card
-      bordered
       bg-white
-      text-black
       px-5
       pb-7
       pt-4
-      rounded-4xl
+      shadow-2xl
+      rounded-3xl
       flex
       items-center
       justify-center
@@ -29,8 +28,9 @@
         <p>price: 1000</p>
       </div>
     </div>
-    <div
+    <button
       class="
+      reserve-button
         flex
         items-center
         justify-center
@@ -38,7 +38,6 @@
         rounded-4xl
         w-32
         h-auto
-        bg-green-400
         object-cover
         mt-68
         pb-2
@@ -48,12 +47,12 @@
       "
     >
       จอง
-    </div>
+    </button>
     <button
       class="
-        bg-indigo-500
+        detail-button
         text-white
-        p-1
+        p-2
         rounded-4xl
         absolute
         mt-48
@@ -67,7 +66,7 @@
     <div v-if="isOn" class="bg-white absolute rounded-4xl">
       <!-- header -->
       <div class="px-4 py-3 border-b border-gray-200 flex flex-row">
-        <h2 class="text-xl font-semibold text-gray-600">ข้อมูลเพิ่มเติม</h2>
+        <h2 class="text-xl font-semibold">ข้อมูลเพิ่มเติม</h2>
         <button
           class="text-red-600 rounded-4xl text-xl font-bold ml-10"
           @click="isOn = !isOn"
@@ -104,3 +103,30 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.detail-button:hover{
+  background-color: #faf2c5;
+  color: #43362d;
+}
+
+.detail-button{
+  background-color: transparent;
+  color:#C34F7C
+;
+}
+.reserve-button {
+   background-color: #43362d;
+  color: #faf2c5;
+}
+
+.reserve-button:hover {
+   background-color: #C34F7C;
+  color: #faf2c5;
+  border: transparent;
+}
+
+div{
+  color: #43362d;
+}
+</style>
