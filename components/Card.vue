@@ -3,7 +3,9 @@
     class="
       card
       bg-white
-      my-2
+      mt-5
+      mb-7
+      md:my-2
       px-5
       pb-7
       pt-4
