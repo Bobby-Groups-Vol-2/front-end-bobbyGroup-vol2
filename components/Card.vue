@@ -2,35 +2,38 @@
   <div
     class="
       card
-      bordered
       bg-white
-      text-black
+      mt-5
+      mb-7
+      md:my-2
       px-5
       pb-7
       pt-4
-      rounded-4xl
+      shadow-2xl
+      rounded-3xl
       flex
       items-center
       justify-center
       overflow-visible
     "
   >
-    <div class="m-2 border-4 border-black overflow-hidden">
+    <div class="m-2  overflow-hidden">
       <img
-        src="https://picsum.photos/id/1005/400/250"
+        src="https://bit.ly/3CEuFtX"
         class="object-cover w-full h-24"
       />
     </div>
     <div class="text-sm">
-      <p class="card-title my-1">Persian</p>
+      <p class="card-title my-1" style="color:#C34F7C">Persian</p>
       <div class="w-32">
         <p>Species: Persian</p>
         <p>name: Bobby</p>
         <p>price: 1000</p>
       </div>
     </div>
-    <div
+    <button
       class="
+      reserve-button
         flex
         items-center
         justify-center
@@ -38,22 +41,21 @@
         rounded-4xl
         w-32
         h-auto
-        bg-green-400
         object-cover
-        mt-68
-        pb-2
+        mt-72
+        py-2
         text-white
         font-bold
-        text-3xl
+        text-2xl
       "
     >
       จอง
-    </div>
+    </button>
     <button
       class="
-        bg-indigo-500
+        detail-button
         text-white
-        p-1
+        p-2
         rounded-4xl
         absolute
         mt-48
@@ -64,12 +66,12 @@
     >
       เพิ่มเติม
     </button>
-    <div v-if="isOn" class="bg-white absolute rounded-4xl">
+    <div v-if="isOn" class="bg-white mt-3 absolute rounded-4xl">
       <!-- header -->
-      <div class="px-4 py-3 border-b border-gray-200 flex flex-row">
-        <h2 class="text-xl font-semibold text-gray-600">ข้อมูลเพิ่มเติม</h2>
-        <button
-          class="text-red-600 rounded-4xl text-xl font-bold ml-10"
+      <div class="px-4 py-2 border-b border-gray-200 flex flex-row">
+        <h2 class="text-xl font-semibold" style="color:#C34F7C">ข้อมูลเพิ่มเติม</h2>
+        <button style="color:#C34F7C"
+          class="rounded-4xl text-xl font-bold ml-10"
           @click="isOn = !isOn"
         >
           X
@@ -104,3 +106,30 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.detail-button:hover{
+  background-color: #faf2c5;
+  color: #43362d;
+}
+
+.detail-button{
+  background-color: transparent;
+  color:#C34F7C;
+;
+}
+.reserve-button {
+   background-color: #43362d;
+  color: #faf2c5;
+}
+
+.reserve-button:hover {
+   background-color: #C34F7C;
+  color: #faf2c5;
+  border: transparent;
+}
+
+div{
+  color: #43362d;
+}
+</style>
