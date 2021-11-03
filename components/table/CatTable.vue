@@ -17,7 +17,10 @@
         :key="cat.id"
         class="bg-fauxlavender border-b border-gray-200 rounded-4xl"
       >
-        <td class="px-2 py-3">{{ cat.catid }}</td>
+        <td class="px-2 py-3 flex flex-col">
+          {{ cat.catid }}
+          <input v-if="isOn" type="text" :value="cat.catid" class="w-32" />
+        </td>
         <td class="px-2 py-3">
           {{ cat.catname }}
         </td>
@@ -32,7 +35,7 @@
           <span v-html="orderCheck(cat.status)"></span>
         </td>
         <td>
-          <button class="btn bg-yellow-500">Edit</button>
+          <button class="btn bg-yellow-500" @click="editCat">Edit</button>
         </td>
         <td>
           <button class="btn bg-red-600" @click="deleteCat(cat.catid)">
@@ -55,6 +58,7 @@ export default {
       haveCer: false,
       ordered: '<p style="color: red">Ordered</p>',
       inStock: '<p style="color: green">In stock</p>',
+      isOn: false,
     };
   },
   async created() {
@@ -79,6 +83,9 @@ export default {
     deleteCat(id) {
       this.callApi("delete", "/api/cats/" + id);
       location.reload();
+    },
+    editCat() {
+      this.isOn = !this.isOn;
     },
   },
 };
