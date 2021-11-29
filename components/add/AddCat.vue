@@ -11,7 +11,7 @@
     <div>
       <!-- //? Name -->
       <label class="label">
-        <span class="label-text text-black">Name</span>
+        <span class="label-text text-black font-semibold">Name</span>
       </label>
       <input
         v-model="cat.catname"
@@ -23,7 +23,7 @@
     <!-- //? Price -->
     <div>
       <label class="label">
-        <span class="label-text text-black">Price</span>
+        <span class="label-text text-black font-semibold">Price</span>
       </label>
       <input
         v-model="cat.price"
@@ -48,10 +48,10 @@
 
     <div>
       <label class="label">
-        <span class="label-text text-black">Species</span>
+        <span class="label-text text-black font-semibold">Species</span>
       </label>
       <div class="dropdown">
-        <div tabindex="0" class="btn">{{ speciesName }}</div>
+        <div tabindex="0" class="btn select-btn">{{ speciesName }}</div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
@@ -67,10 +67,10 @@
     <!-- //? Gender -->
     <div>
       <label class="label">
-        <span class="label-text text-black">Gender</span>
+        <span class="label-text text-black font-semibold">Gender</span>
       </label>
       <div class="dropdown">
-        <div tabindex="0" class="btn">{{ gender }}</div>
+        <div tabindex="0" class="btn select-btn">{{ gender }}</div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
@@ -83,20 +83,20 @@
     <!-- //? DOB -->
     <div>
       <label class="label">
-        <span class="label-text text-black">Date of Birth</span>
+        <span class="label-text text-black font-semibold">Date of Birth</span>
       </label>
-      <button tabindex="0" class="btn" @click="show()">DOB</button>
-      <span class="text-black font-bold">{{ date }}</span>
+      <button tabindex="0" class="btn select-btn" @click="show()">DOB</button>
+      <span class="text-black font-medium">{{ date }}</span>
       <div v-if="isOn">
         <v-date-picker v-model="date" :model-config="modelConfig" />
-        <button tabindex="0" class="btn" @click="updateDOB(date), show()">
+        <button tabindex="0" class="btn select-btn" @click="updateDOB(date), show()">
           Confirm
         </button>
       </div>
     </div>
     <div>
       <button
-        class="btn mt-9 bg-green-600 border-green-600"
+        class="btn mt-9 confirm"
         @click="
           confirmCat(
             cat.catname,
@@ -199,3 +199,33 @@ export default {
   },
 };
 </script>
+<style scoped>
+::placeholder{
+  color: aliceblue;
+}
+.btn, input{
+  background-color: #43362d;
+}
+.btn{
+    color: #faf2c5;
+}
+.select-btn{
+  background-color: #9e5f43;
+  border: 0cm;
+}
+.select-btn:hover{
+  background-color: #43362d;
+  color: #faf2c5;
+  border: 0cm;
+}
+.confirm{
+  background-color: olivedrab;
+  border: 0ch;
+  color: #faf2c5;
+}
+.confirm:hover{
+  background-color: #C34F7C;
+  border: 0ch;
+  color: #faf2c5;
+}
+</style>
