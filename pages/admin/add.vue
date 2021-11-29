@@ -39,7 +39,12 @@
 }
 @media (min-width: 1024px) {
   .holder{
-    width: 60%;
+    width: 90vw;
+  }
+}
+@media (min-width: 1440px) {
+  .holder{
+    width: 60vw;
   }
 }
 </style>

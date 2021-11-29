@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col mt-5">
-    <div class="flex flex-col lg:flex-row lg:justify-start justify-center text-lg lg:text-2xl font-bold">
-      <nuxt-link to="/cat" class="lg:mr-20 flex justify-center"
-        ><Logo class=" lg:w-1/3 w-1/4"
+    <div class="flex flex-col lg:flex-row lg:justify-start text-lg lg:text-2xl font-bold">
+      <nuxt-link to="/cat" class="flex justify-center"
+        ><Logo class="flex justify-center  lg:w-1/3 w-1/4"
       /></nuxt-link>
       <div class="flex justify-center">
         <div class="grid grid-cols-2 gap-0 lg:flex flex-row">
@@ -32,7 +32,7 @@
               register-button
               btn
               text-sm
-              lg:ml-20
+              
               xl:ml-52 lg:mt-8
             "
           >
