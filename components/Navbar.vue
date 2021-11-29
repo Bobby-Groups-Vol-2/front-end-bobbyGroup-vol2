@@ -1,45 +1,70 @@
 <template>
   <div class="flex flex-col mt-5">
-    <div class="flex flex-row justify-start text-2xl font-bold">
-      <nuxt-link to="/cat" class="mr-20"><Logo class="ml-20" /></nuxt-link>
-      <nuxt-link to="/cat" class="ml-20 mt-10">Cat</nuxt-link>
-      <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
-      <nuxt-link to="/order" class="ml-20 mt-10">Order</nuxt-link>
-      <nuxt-link to="/admin/table" class="ml-20 mt-10">Admin</nuxt-link>
+    <div
+      class="
+        flex flex-col
+        lg:flex-row lg:justify-start
+        justify-center
+        text-lg
+        lg:text-2xl
+        font-bold
+      "
+    >
+      <nuxt-link to="/cat" class="lg:mr-20 flex justify-center"
+        ><Logo class="lg:w-1/3 w-1/4"
+      /></nuxt-link>
+      <div class="flex justify-center">
+        <div class="grid grid-cols-2 gap-0 lg:flex flex-row">
+          <nuxt-link to="/cat" class="m-5 lg:ml-20 lg:mt-10">Cat</nuxt-link>
+          <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
 
-      <NuxtLink
-        to="/register"
-        class="
-          rounded-xl
-          border-transparent
-          shadow-2xl
-          w-28
-          register-button
-          btn
-          text-sm
-          ml-52
-          mt-8
-        "
-      >
-        Register
-      </NuxtLink>
-      <NuxtLink
-        to="/login"
-        class="
-          rounded-xl
-          border-transparent
-          bg-white
-          shadow-2xl
-          w-28
-          log-in-button
-          btn
-          text-sm
-          mx-5
-          mt-8
-        "
-      >
-        Log In</NuxtLink
-      >
+          <nuxt-link to="/order" class="m-5 lg:ml-10 lg:mt-10">Order</nuxt-link>
+          <nuxt-link to="/admin/cat" class="m-5 lg:ml-10 lg:mt-10"
+            >Cat Management</nuxt-link
+          >
+          <nuxt-link to="/admin/species" class="m-5 lg:ml-10 lg:mt-10"
+            >Species Management</nuxt-link
+          >
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="grid grid-cols-2 p-3 gap-5 lg:flex flex-row">
+          <nuxt-link
+            to="/"
+            class="
+              rounded-xl
+              border-transparent
+              shadow-2xl
+              w-28
+              register-button
+              btn
+              text-sm
+              lg:ml-20
+              xl:ml-52
+              lg:mt-8
+            "
+          >
+            Register
+          </nuxt-link>
+          <nuxt-link
+            to="/auth/login"
+            class="
+              rounded-xl
+              border-transparent
+              bg-white
+              shadow-2xl
+              w-28
+              log-in-button
+              btn
+              text-sm
+              lg:mx-5 lg:mt-8
+            "
+          >
+            Log In</nuxt-link
+          >
+        </div>
+      </div>
     </div>
     <slot></slot>
   </div>

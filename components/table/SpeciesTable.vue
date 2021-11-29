@@ -46,12 +46,19 @@
     <div class="flex flex-col justify-start ml-48 my-10">
       <h1 class="ml-1 mb-4 font-bold text-3xl">Species</h1>
       <add-species class="lg:w-2/3 w-1/2"></add-species>
+      <h1 class="ml-1 mb-4 font-bold text-3xl">Patterns</h1>
+      <add-pattern class="lg:w-2/3 w-1/2"></add-pattern>
+      <h1 class="ml-1 mb-4 font-bold text-3xl">Add Patterns to Species</h1>
+      <specis-patterns class="lg:w-2/3 w-1/2"></specis-patterns>
     </div>
   </div>
 </template>
 
 <script>
+import AddPattern from "../add/AddPattern.vue";
+import SpecisPatterns from "../add/SpecisPatterns.vue";
 export default {
+  components: { AddPattern, SpecisPatterns },
   data() {
     return {
       species: [],

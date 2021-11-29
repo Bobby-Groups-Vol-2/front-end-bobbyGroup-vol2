@@ -2,7 +2,6 @@
   <div
     class="
       py-5
-      pl-10
       bg-fauxlavender
       rounded-4xl
       lg:grid lg:grid-cols-3
@@ -11,7 +10,7 @@
   >
     <div>
       <label class="label">
-        <span class="label-text text-black">Name</span>
+        <span class="label-text text-black font-semibold">Pattern Name</span>
       </label>
       <input
         v-model="pattern.patternname"
@@ -22,7 +21,7 @@
     </div>
     <div>
       <button
-        class="btn bg-green-600 border-green-600 mt-9"
+        class="btn confirm mt-9"
         @click="updatePatterns(pattern.patternname)"
       >
         Confirm
@@ -54,3 +53,21 @@ export default {
   },
 };
 </script>
+<style scoped>
+::placeholder{
+  color: aliceblue;
+}
+input{
+  background-color: #43362d;
+}
+.confirm{
+  background-color: olivedrab;
+  border: 0ch;
+  color: #faf2c5;
+}
+.confirm:hover{
+  background-color: #C34F7C;
+  border: 0ch;
+  color: #faf2c5;
+}
+</style>
