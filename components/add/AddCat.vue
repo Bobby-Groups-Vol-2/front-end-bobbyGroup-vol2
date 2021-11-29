@@ -11,7 +11,7 @@
     <div>
       <!-- //? Name -->
       <label class="label">
-        <span class="label-text text-black font-semibold">Name</span>
+        <span class="label-text text-black font-semibold">Cat's Name</span>
       </label>
       <input
         v-model="cat.catname"
