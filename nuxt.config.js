@@ -54,4 +54,29 @@ export default {
   build: {
     transpile: ["vee-validate/dist/rules"],
   },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true,
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: "user",
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: "/api/users/login", method: "post" },
+          logout: { url: "/api/users/logout", method: "post" },
+          // user: { url: "/api/auth/user", method: "get" },
+        },
+      },
+    },
+  },
+  // router: {
+  //   middleware: ["auth"],
+  // },
 };

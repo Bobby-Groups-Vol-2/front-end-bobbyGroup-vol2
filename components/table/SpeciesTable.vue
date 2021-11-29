@@ -17,19 +17,29 @@
         <td class="px-2 py-3">
           {{ specie.speciesname }}
         </td>
-        <td
-          v-for="pattern in specie.owns"
-          :key="pattern.patterns_patternid"
-          class="px-2 py-3"
-        >
-          {{ pattern.patterns_patternid }}
+        <td class="px-2 py-3">
+          <span
+            v-for="pattern in specie.owns"
+            :key="pattern.patterns_patternid"
+          >
+            {{ pattern.patterns_patternid }}</span
+          >
         </td>
-        <td
-          v-for="pattern in specie.owns"
-          :key="pattern.patterns_patternid"
-          class="px-2 py-3"
-        >
-          {{ pattern.pattern.patternname }}
+        <td class="px-2 py-3">
+          <span
+            v-for="pattern in specie.owns"
+            :key="pattern.patterns_patternid"
+          >
+            {{ pattern.pattern.patternname }}</span
+          >
+        </td>
+        <td>
+          <button
+            class="btn bg-red-600"
+            @click="deleteSpecies(specie.speciesid)"
+          >
+            Delete
+          </button>
         </td>
       </tr>
     </table>
@@ -52,6 +62,12 @@ export default {
     if (res.status === 200) {
       this.species = res.data;
     }
+  },
+  methods: {
+    deleteSpecies(id) {
+      this.callApi("delete", "/api/species/" + id);
+      // location.reload();
+    },
   },
 };
 </script>

@@ -7,8 +7,8 @@
       <nuxt-link to="/admin/admin" class="ml-20 mt-10">Admin</nuxt-link>
       <nuxt-link to="/admin/add" class="ml-20 mt-10">Add</nuxt-link>
       <nuxt-link to="/order/order" class="ml-20 mt-10">Order</nuxt-link>
-      <nuxt-link
-        to="/"
+      <NuxtLink
+        to="/register"
         class="
           rounded-xl
           border-transparent
@@ -22,9 +22,9 @@
         "
       >
         Register
-      </nuxt-link>
-      <nuxt-link
-        to="/auth/login"
+      </NuxtLink>
+      <NuxtLink
+        to="/login"
         class="
           rounded-xl
           border-transparent
@@ -38,18 +38,20 @@
           mt-8
         "
       >
-        Log In</nuxt-link
+        Log In</NuxtLink
       >
     </div>
     <slot></slot>
   </div>
 </template>
-
+<script>
+export default {};
+</script>
 
 <style scoped>
 .register-button {
-   color: #9e5f43;
-   background-color: aliceblue;
+  color: #9e5f43;
+  background-color: aliceblue;
 }
 
 .register-button:hover {
@@ -59,17 +61,14 @@
 }
 
 .log-in-button {
-   background-color: #43362d;
+  background-color: #43362d;
   color: #faf2c5;
-
- 
 }
 
 .log-in-button:hover {
-   background-color: #faf2c5;
+  background-color: #faf2c5;
   color: #43362d;
   border: transparent;
-  
 }
 
 a:hover {

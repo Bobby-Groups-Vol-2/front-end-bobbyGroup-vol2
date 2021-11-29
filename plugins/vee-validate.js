@@ -1,5 +1,5 @@
-import Vue from "vue";
 import { extend, ValidationObserver, ValidationProvider } from "vee-validate";
+import Vue from "vue";
 import {
   required,
   email,
@@ -23,9 +23,9 @@ extend("email", {
   message: "กรุณากรอกอีเมลล์อีกครั้งให้ถูกต้อง",
 });
 
-extend("digits", {
+extend("phone", {
   ...digits,
-  message: "กรุณากรอกเป็นตัวเลข",
+  message: "กรุณากรอกเบอร์โทรเป็นตัวเลข 10 ตัว",
 });
 
 extend("min", {

@@ -3,8 +3,7 @@
     class="
       py-5
       pl-10
-      lg:grid lg:grid-cols-3
-      lg:gap-3
+      lg:grid lg:grid-cols-3 lg:gap-3
       bg-fauxlavender
       rounded-4xl
     "
@@ -88,16 +87,26 @@
       </label>
       <button tabindex="0" class="btn" @click="show()">DOB</button>
       <span class="text-black font-bold">{{ date }}</span>
-      <div v-if="isOn">
+      <div v-if="isOn" class="absolute">
         <v-date-picker v-model="date" :model-config="modelConfig" />
         <button tabindex="0" class="btn" @click="updateDOB(date), show()">
           Confirm
         </button>
       </div>
     </div>
+    <!-- //? IMG -->
+    <div>
+      <label class="label">
+        <span class="label-text text-black">Upload Image</span>
+      </label>
+      <!-- <input type="file" @change="onFileChange" /> -->
+      <div id="preview">
+        <img v-if="url" :src="url" />
+      </div>
+    </div>
     <div>
       <button
-        class="btn mt-9 bg-green-600 border-green-600"
+        class="btn mt-20 bg-green-600 border-green-600"
         @click="
           confirmCat(
             cat.catname,
@@ -123,7 +132,7 @@ export default {
   data() {
     return {
       cat: {
-        catid: 1,
+        // catid: 1,
         catname: "",
         catimage: "catTest.jpg",
         price: 0,
@@ -140,6 +149,7 @@ export default {
       speciesName: "select species",
       selectedDate: null,
       date: "",
+      url: null,
       isOn: false,
       modelConfig: {
         type: "string",
@@ -167,6 +177,10 @@ export default {
     updateGender(gender) {
       this.cat.gender = gender;
       this.gender = gender;
+    },
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
     },
     async confirmCat(
       catName,
@@ -200,3 +214,13 @@ export default {
   },
 };
 </script>
+<style>
+#preview {
+  position: absolute;
+}
+
+#preview img {
+  max-width: 80%;
+  max-height: 200px;
+}
+</style>
