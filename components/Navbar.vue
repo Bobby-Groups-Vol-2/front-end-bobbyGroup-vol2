@@ -4,9 +4,9 @@
       <nuxt-link to="/cat" class="mr-20"><Logo class="ml-20" /></nuxt-link>
       <nuxt-link to="/cat" class="ml-20 mt-10">Cat</nuxt-link>
       <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
-      <nuxt-link to="/admin/admin" class="ml-20 mt-10">Admin</nuxt-link>
-      <nuxt-link to="/admin/add" class="ml-20 mt-10">Add</nuxt-link>
-      <nuxt-link to="/order/order" class="ml-20 mt-10">Order</nuxt-link>
+      <nuxt-link to="/order" class="ml-20 mt-10">Order</nuxt-link>
+      <nuxt-link to="/admin/table" class="ml-20 mt-10">Admin</nuxt-link>
+
       <NuxtLink
         to="/register"
         class="

@@ -71,6 +71,7 @@ export default {
         username: "",
         password: "",
       },
+      errors: false,
     };
   },
   mounted() {
@@ -79,21 +80,25 @@ export default {
   },
   methods: {
     async userLogin() {
+      const payloads = {
+        username: this.login.username,
+        password: this.login.password,
+      };
       try {
+        console.log(payloads);
         // await this.$auth.loginWith("local", { data: this.login });
-        await this.$auth
-          .loginWith("local", { data: this.login })
-          .then(() =>
-            this.$toast.success("Logged In!", this.$router.push("./cat"))
-          );
+        await this.$auth.loginWith("local", { data: payloads });
+        this.$router.push("/cat");
 
         // console.log(response);
 
         console.log(this.login);
         console.log(this.$auth.user);
         console.log(this.$auth.loggedIn);
-      } catch (err) {
-        // console.log(err);
+      } catch (e) {
+        if (e) {
+          this.errors = true;
+        }
       }
     },
   },

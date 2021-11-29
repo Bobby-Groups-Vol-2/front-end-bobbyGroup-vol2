@@ -7,7 +7,7 @@
       mb-7
       md:my-2
       px-5
-      pb-7
+      pb-14
       pt-4
       shadow-2xl
       rounded-3xl
@@ -18,7 +18,7 @@
     "
   >
     <div class="m-2 overflow-hidden">
-      <img src="https://bit.ly/3CEuFtX" class="object-cover w-full h-24" />
+      <img :src="catImage" class="object-cover w-full border-2 border-black" />
     </div>
     <div class="text-sm">
       <p class="card-title my-1" style="color: #c34f7c">{{ catName }}</p>
@@ -51,18 +51,18 @@
       class="
         detail-button
         text-white
-        p-2
+        p-1
         rounded-4xl
         absolute
-        mt-44
-        ml-36
+        mt-52
+        ml-24
         text-sm
       "
       @click="isOn = !isOn"
     >
       เพิ่มเติม
     </button>
-    <div v-if="isOn" class="bg-white mt-3 absolute pt-3">
+    <div v-if="isOn" class="bg-white mt-3 absolute pt-1">
       <!-- header -->
       <div class="px-4 py-2 border-b border-gray-200 flex flex-row">
         <h2 class="text-xl font-semibold" style="color: #c34f7c">
@@ -78,11 +78,11 @@
       </div>
 
       <!-- body -->
-      <div class="w-full px-3 py-5">
+      <div id="textSm" class="w-full px-3 py-5">
         <ul>
           <li>Gender: {{ catGender }}</li>
           <li>
-            Date of Birth: <span class="text-sm">{{ catDate }}</span>
+            Date of Birth: <span id="textVerySm">{{ catDate }}</span>
           </li>
           <li>Pattern: {{ catPattern }}</li>
           <li>Status: <span v-html="catStatus"></span></li>
@@ -105,11 +105,18 @@ export default {
     catDate: { type: String, default: "no DOB" },
     catPattern: { type: String, default: "no pattern" },
     catStatus: { type: String, default: "no status" },
+    catImg: { type: String, default: "" },
   },
   data() {
     return {
       isOn: false,
+      img: this.catImg,
     };
+  },
+  computed: {
+    catImage() {
+      return this.$config.catimage + this.catImg;
+    },
   },
 };
 </script>
@@ -137,5 +144,15 @@ export default {
 
 div {
   color: #43362d;
+}
+img {
+  height: 6rem;
+  width: 7rem;
+}
+#textSm {
+  font-size: 0.75rem;
+}
+#textVerySm {
+  font-size: 0.65rem;
 }
 </style>

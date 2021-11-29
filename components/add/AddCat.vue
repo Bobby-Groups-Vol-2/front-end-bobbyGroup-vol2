@@ -99,9 +99,9 @@
       <label class="label">
         <span class="label-text text-black">Upload Image</span>
       </label>
-      <!-- <input type="file" @change="onFileChange" /> -->
+      <input type="file" @change="onFileChange" />
       <div id="preview">
-        <img v-if="url" :src="url" />
+        <img v-if="img" :src="img" />
       </div>
     </div>
     <div>
@@ -110,7 +110,6 @@
         @click="
           confirmCat(
             cat.catname,
-            cat.catimage,
             cat.dob,
             cat.speciesid,
             cat.price,
@@ -149,7 +148,8 @@ export default {
       speciesName: "select species",
       selectedDate: null,
       date: "",
-      url: null,
+      img: null,
+      selectedFile: null,
       isOn: false,
       modelConfig: {
         type: "string",
@@ -179,12 +179,16 @@ export default {
       this.gender = gender;
     },
     onFileChange(e) {
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
+      const img = e.target.files[0];
+
+      this.img = URL.createObjectURL(img);
+      this.selectedFile = img;
+
+      console.log(this.file);
+      console.log(this.img);
     },
     async confirmCat(
       catName,
-      catImage,
       DOB,
       speciesId,
       Price,
@@ -193,19 +197,32 @@ export default {
       certificateImage,
       ordersOrderid
     ) {
-      const cat = {
-        catname: catName,
-        catimage: catImage,
-        price: Price,
-        gender: Gender,
-        status: Status,
-        dob: DOB,
-        certificateimage: certificateImage,
-        orders_orderid: ordersOrderid,
-        species_speciesid: speciesId,
-      };
+      const formData = new FormData();
+      formData.append("catname", catName);
+      formData.append("myFile", this.selectedFile, this.selectedFile.name);
+      formData.append("price", Price);
+      formData.append("gender", Gender);
+      formData.append("status", Status);
+      formData.append("dob", DOB);
+      formData.append("certificateimage", certificateImage);
+      formData.append("orders_orderid", ordersOrderid);
+      formData.append("species_speciesid", speciesId);
 
-      const res = await this.callApi("post", "/api/cats", cat);
+      // console.log(formData.get("myFile"));
+      // console.log(this.selectedFile.name);
+      // const cat = {
+      //   catname: catName,
+      //   myFile: formData,
+      //   price: Price,
+      //   gender: Gender,
+      //   status: Status,
+      //   dob: DOB,
+      //   certificateimage: certificateImage,
+      //   orders_orderid: ordersOrderid,
+      //   species_speciesid: speciesId,
+      // };
+
+      const res = await this.callApi("post", "/api/cats", formData);
       if (res.status >= 200) {
         alert("Success");
         location.reload();

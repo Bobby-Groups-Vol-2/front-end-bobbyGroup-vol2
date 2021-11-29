@@ -11,6 +11,7 @@
         :cat-date="cat.dob"
         :cat-status="orderCheck(cat.status)"
         :cat-pattern="patternCheck(cat.species.speciesid)"
+        :cat-img="cat.catimage"
       />
     </div>
   </div>
@@ -18,12 +19,6 @@
 
 <script>
 export default {
-  middleware({ store, redirect }) {
-    const user = store.$auth.user;
-    if (user.role === "user") {
-      redirect("/cat");
-    } else if (!user) redirect("/");
-  },
   data() {
     return {
       cats: [
@@ -41,6 +36,8 @@ export default {
     if (resCat.status === 200) {
       this.cats = resCat.data;
     }
+    console.log(this.cats);
+
     const resPats = await this.callApi("get", "/api/patterns");
     if (resPats.status === 200) {
       this.patterns = resPats.data;

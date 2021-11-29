@@ -13,10 +13,7 @@ export default {
       width: "",
     };
   },
-  computed() {
-    // this.windowSize.width = window.innerWidth;
-    window.addEventListener("resize", this.updateWidth);
-  },
+
   created() {},
 
   methods: {

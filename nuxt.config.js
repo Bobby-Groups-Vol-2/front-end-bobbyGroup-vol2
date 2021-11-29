@@ -60,7 +60,7 @@ export default {
       local: {
         token: {
           property: "token",
-          global: true,
+          // global: true,
           // required: true,
           // type: 'Bearer'
         },
@@ -69,14 +69,19 @@ export default {
           // autoFetch: true
         },
         endpoints: {
-          login: { url: "/api/users/login", method: "post" },
-          logout: { url: "/api/users/logout", method: "post" },
-          // user: { url: "/api/auth/user", method: "get" },
+          login: { url: "/api/users/logins", method: "post" },
+          // logout: { url: "/api/users/logout", method: "post" },
+          user: { url: "/api/users/me", method: "get" },
         },
       },
     },
+    redirect: {
+      login: "/",
+      logout: "/",
+      home: "/cat",
+    },
   },
-  // router: {
-  //   middleware: ["auth"],
-  // },
+  publicRuntimeConfig: {
+    catimage: process.env.API_URL + "/api/images/",
+  },
 };
