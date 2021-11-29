@@ -38,15 +38,15 @@
     </table>
     <div class="flex flex-col justify-start mt-10 ml-48">
       <h1 class="ml-1 mb-4 font-bold text-3xl">Species</h1>
-      <add-pattern class="lg:w-2/3 w-1/2"></add-pattern>
+      <!-- <add-pattern class="lg:w-2/3 w-1/2"></add-pattern> -->
     </div>
   </div>
 </template>
 
 <script>
-import AddPattern from "../add/AddPattern.vue";
+// import AddPattern from "../add/AddPattern.vue";
 export default {
-  components: { AddPattern },
+  // components: { AddPattern },
   data() {
     return {
       patterns: [],

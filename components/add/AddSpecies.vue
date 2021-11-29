@@ -3,7 +3,7 @@
     <!-- //? speciesName -->
     <div>
       <label class="label">
-        <span class="label-text text-black">Species Name</span>
+        <span class="label-text text-black font-semibold">Species Name</span>
       </label>
       <input
         v-model="species.speciesname"
@@ -16,7 +16,7 @@
 
     <div>
       <label class="label">
-        <span class="label-text text-black">Patterns</span>
+        <span class="label-text text-black font-semibold">Patterns</span>
       </label>
       <div class="dropdown">
         <div tabindex="0" class="btn select-btn">{{ patternname }}</div>
