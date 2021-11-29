@@ -1,21 +1,29 @@
 <template>
   <div class="flex flex-col mt-5">
-    <div class="flex flex-col lg:flex-row lg:justify-start text-lg lg:text-2xl font-bold">
-      <nuxt-link to="/cat" class="flex justify-center"
-        ><Logo class="flex justify-center  lg:w-1/3 w-1/4"
+    <div
+      class="
+        flex flex-col
+        lg:flex-row lg:justify-start
+        justify-center
+        text-lg
+        lg:text-2xl
+        font-bold
+      "
+    >
+      <nuxt-link to="/cat" class="lg:mr-20 flex justify-center"
+        ><Logo class="lg:w-1/3 w-1/4 flex justify-center"
       /></nuxt-link>
       <div class="flex justify-center">
         <div class="grid grid-cols-2 gap-0 lg:flex flex-row">
           <nuxt-link to="/cat" class="m-5 lg:ml-20 lg:mt-10">Cat</nuxt-link>
           <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
-          <nuxt-link to="/admin/admin" class="m-5 lg:ml-10 lg:mt-10"
-            >Admin</nuxt-link
+
+          <nuxt-link to="/order" class="m-5 lg:ml-10 lg:mt-10">Order</nuxt-link>
+          <nuxt-link to="/admin/cat" class="m-5 lg:ml-10 lg:mt-10"
+            >Cat Management</nuxt-link
           >
-          <nuxt-link to="/admin/add" class="m-5 lg:ml-10 lg:mt-10"
-            >Add</nuxt-link
-          >
-          <nuxt-link to="/order/order" class="m-5 lg:ml-10 lg:mt-10"
-            >Order</nuxt-link
+          <nuxt-link to="/admin/species" class="m-5 lg:ml-10 lg:mt-10"
+            >Species Management</nuxt-link
           >
         </div>
       </div>
@@ -60,7 +68,9 @@
     <slot></slot>
   </div>
 </template>
-
+<script>
+export default {};
+</script>
 
 <style scoped>
 .register-button {

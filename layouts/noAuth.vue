@@ -1,10 +1,7 @@
 <template>
   <div class="relative min-h-screen">
-    <Navbar>
-      <Nuxt class="relative top-10vh" />
-      <!-- relative top-10vh -->
-    </Navbar>
     <h1>{{ width }}</h1>
+    <Nuxt class="relative top-10vh" />
   </div>
 </template>
 <script>

@@ -1,13 +1,5 @@
 <template>
-  <div
-    class="
-      py-5
-      lg:grid lg:grid-cols-3
-      lg:gap-3
-      bg-fauxlavender
-      rounded-4xl
-    "
-  >
+  <div class="py-5 lg:grid lg:grid-cols-3 lg:gap-3 bg-fauxlavender rounded-4xl">
     <div>
       <!-- //? Name -->
       <label class="label">
@@ -89,9 +81,23 @@
       <span class="text-black font-medium">{{ date }}</span>
       <div v-if="isOn">
         <v-date-picker v-model="date" :model-config="modelConfig" />
-        <button tabindex="0" class="btn select-btn" @click="updateDOB(date), show()">
+        <button
+          tabindex="0"
+          class="btn select-btn"
+          @click="updateDOB(date), show()"
+        >
           Confirm
         </button>
+      </div>
+    </div>
+    <!-- //? IMG -->
+    <div>
+      <label class="label">
+        <span class="label-text text-black">Upload Image</span>
+      </label>
+      <input type="file" @change="onFileChange" />
+      <div id="preview">
+        <img v-if="img" :src="img" />
       </div>
     </div>
     <div>
@@ -100,7 +106,6 @@
         @click="
           confirmCat(
             cat.catname,
-            cat.catimage,
             cat.dob,
             cat.speciesid,
             cat.price,
@@ -122,7 +127,7 @@ export default {
   data() {
     return {
       cat: {
-        catid: 1,
+        // catid: 1,
         catname: "",
         catimage: "catTest.jpg",
         price: 0,
@@ -139,6 +144,8 @@ export default {
       speciesName: "select species",
       selectedDate: null,
       date: "",
+      img: null,
+      selectedFile: null,
       isOn: false,
       modelConfig: {
         type: "string",
@@ -167,9 +174,17 @@ export default {
       this.cat.gender = gender;
       this.gender = gender;
     },
+    onFileChange(e) {
+      const img = e.target.files[0];
+
+      this.img = URL.createObjectURL(img);
+      this.selectedFile = img;
+
+      console.log(this.file);
+      console.log(this.img);
+    },
     async confirmCat(
       catName,
-      catImage,
       DOB,
       speciesId,
       Price,
@@ -178,19 +193,32 @@ export default {
       certificateImage,
       ordersOrderid
     ) {
-      const cat = {
-        catname: catName,
-        catimage: catImage,
-        price: Price,
-        gender: Gender,
-        status: Status,
-        dob: DOB,
-        certificateimage: certificateImage,
-        orders_orderid: ordersOrderid,
-        species_speciesid: speciesId,
-      };
+      const formData = new FormData();
+      formData.append("catname", catName);
+      formData.append("myFile", this.selectedFile, this.selectedFile.name);
+      formData.append("price", Price);
+      formData.append("gender", Gender);
+      formData.append("status", Status);
+      formData.append("dob", DOB);
+      formData.append("certificateimage", certificateImage);
+      formData.append("orders_orderid", ordersOrderid);
+      formData.append("species_speciesid", speciesId);
 
-      const res = await this.callApi("post", "/api/cats", cat);
+      // console.log(formData.get("myFile"));
+      // console.log(this.selectedFile.name);
+      // const cat = {
+      //   catname: catName,
+      //   myFile: formData,
+      //   price: Price,
+      //   gender: Gender,
+      //   status: Status,
+      //   dob: DOB,
+      //   certificateimage: certificateImage,
+      //   orders_orderid: ordersOrderid,
+      //   species_speciesid: speciesId,
+      // };
+
+      const res = await this.callApi("post", "/api/cats", formData);
       if (res.status >= 200) {
         alert("Success");
         location.reload();
@@ -199,32 +227,42 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-::placeholder{
+#preview {
+  position: absolute;
+}
+
+#preview img {
+  max-width: 80%;
+  max-height: 200px;
+}
+::placeholder {
   color: aliceblue;
 }
-.btn, input{
+.btn,
+input {
   background-color: #43362d;
 }
-.btn{
-    color: #faf2c5;
+.btn {
+  color: #faf2c5;
 }
-.select-btn{
+.select-btn {
   background-color: #9e5f43;
   border: 0cm;
 }
-.select-btn:hover{
+.select-btn:hover {
   background-color: #43362d;
   color: #faf2c5;
   border: 0cm;
 }
-.confirm{
+.confirm {
   background-color: olivedrab;
   border: 0ch;
   color: #faf2c5;
 }
-.confirm:hover{
-  background-color: #C34F7C;
+.confirm:hover {
+  background-color: #c34f7c;
   border: 0ch;
   color: #faf2c5;
 }

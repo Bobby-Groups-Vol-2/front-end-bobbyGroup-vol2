@@ -1,7 +1,7 @@
 <template>
   <div class="my-20">
     <TableCatTable />
-    <TableSpeciesTable />
-    <TablePatternTable />
+    <!-- <TablePatternTable /> -->
+    <AddSpecies />
   </div>
 </template>
