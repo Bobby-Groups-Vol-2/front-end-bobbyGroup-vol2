@@ -38,9 +38,9 @@
             <span> Order ID</span>
           </div>
           <div class="flex flex-col md:grid grid-cols-3 md:gap-12">
-            <Card />
-            <Card />
-            <Card />
+            <CardNoBTN/>
+            <CardNoBTN/>
+            <CardNoBTN/>
           </div>
         </div>
       </div>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+// import CardNoBTN from '~/components/CardNoBTN.vue';
 </script>
 
 <style>
