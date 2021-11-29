@@ -2,7 +2,6 @@
   <div
     class="
       py-5
-      pl-10
       lg:grid lg:grid-cols-3
       lg:gap-3
       bg-fauxlavender
@@ -18,7 +17,7 @@
         v-model="cat.catname"
         type="text"
         placeholder="name"
-        class="input input-bordered"
+        class="input input-bordered text-white"
       />
     </div>
     <!-- //? Price -->

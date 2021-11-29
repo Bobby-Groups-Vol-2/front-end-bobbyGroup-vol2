@@ -2,7 +2,6 @@
   <div
     class="
       py-5
-      pl-10
       bg-fauxlavender
       rounded-4xl
       lg:grid lg:grid-cols-3
