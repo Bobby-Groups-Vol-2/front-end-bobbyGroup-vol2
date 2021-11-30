@@ -36,6 +36,7 @@ html {
   -o-background-size: cover;
   background-size: cover;
   background-color: #d99058;
+   /* background-image:url("https://i.pinimg.com/564x/69/ca/7c/69ca7cd269e752eba1b869e83937b64b.jpg"); */
   background-image: linear-gradient(180deg, #d99058 0%, #f8de7e 74%);
 }
 </style>

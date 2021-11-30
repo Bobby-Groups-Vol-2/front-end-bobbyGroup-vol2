@@ -23,13 +23,13 @@
               v-model="login.username"
               type="text"
               placeholder="Username"
-              class="p-4 mt-6 mb-3 rounded-4xl"
+              class="m-5 p-4 mt-6 mb-3 rounded-4xl"
             />
             <input
               v-model="login.password"
               type="text"
               placeholder="Password"
-              class="p-4 my-3 rounded-4xl"
+              class="m-5 p-4 my-3 rounded-4xl"
             />
             <div class="flex justify-center">
               <button
@@ -159,5 +159,14 @@ input[type="text"] {
 
 .sign-up:hover {
   color: #c34f7c;
+}
+html {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* ไม่ติดดดด */
+  background-image:url("https://i.pinimg.com/564x/69/ca/7c/69ca7cd269e752eba1b869e83937b64b.jpg");
 }
 </style>
