@@ -1,5 +1,6 @@
 <template>
-  <div class="py-5 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-3 bg-fauxlavender rounded-4xl">
+<div class="py-5 bg-fauxlavender rounded-4xl">
+  <div class="md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-3">
     <div>
       <!-- //? Name -->
       <label class="label">
@@ -101,7 +102,8 @@
         <img v-if="img" :src="img" class="mx-7"/>
       </div>
     </div>
-    <div>
+  </div>
+   <div class="md:justify-end md:flex md:mr-7 lg:mr-3 xl:mr-24">
       <button
         class="btn mt-5 confirm mx-7"
         @click="
@@ -120,7 +122,7 @@
         Confirm
       </button>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
