@@ -5,21 +5,21 @@
       pl-10
       bg-fauxlavender
       rounded-4xl
-      lg:grid lg:grid-cols-3 lg:gap-3
+      md:grid md:grid-cols-3 lg:gap-3
     "
   >
     <!-- //? speciesName -->
     <div>
       <label class="label">
-        <span class="label-text text-black">Species</span>
+        <span class="label-text text-black font-semibold">Species</span>
       </label>
       <div class="dropdown">
-        <div tabindex="0" class="btn">{{ speciesname }}</div>
+        <div tabindex="0" class="btn select-btn">{{ speciesname }}</div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
         >
-          <li v-for="specie in species" :key="specie.speciesid">
+          <li v-for="specie in species" :key="specie.speciesid" class="absolute">
             <a @click="mapSpecies(specie.speciesid, specie.speciesname)">
               {{ specie.speciesname }}
             </a>
@@ -37,10 +37,10 @@
 
     <div>
       <label class="label">
-        <span class="label-text text-black">Patterns</span>
+        <span class="label-text text-black font-semibold">Patterns</span>
       </label>
       <div class="dropdown">
-        <div tabindex="0" class="btn">{{ patternname }}</div>
+        <div tabindex="0" class="btn select-btn">{{ patternname }}</div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div>
-      <button class="btn bg-green-600 border-green-600 mt-9" @click="update()">
+      <button class="btn bg-green-600 border-green-600 mt-9 confirm" @click="update()">
         Confirm
       </button>
     </div>
@@ -104,3 +104,33 @@ export default {
   },
 };
 </script>
+<style scoped>
+.btn{
+    color: #faf2c5;
+}
+.select-btn{
+  background-color: #9e5f43;
+  border: 0cm;
+}
+.select-btn:hover{
+  background-color: #43362d;
+  color: #faf2c5;
+  border: 0cm;
+}
+::placeholder {
+  color: aliceblue;
+}
+input {
+  background-color: #43362d;
+}
+.confirm {
+  background-color: olivedrab;
+  border: 0ch;
+  color: #faf2c5;
+}
+.confirm:hover {
+  background-color: #c34f7c;
+  border: 0ch;
+  color: #faf2c5;
+}
+</style>

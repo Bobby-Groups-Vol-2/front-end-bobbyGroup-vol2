@@ -1,25 +1,25 @@
 <template>
-  <div class="py-5 bg-fauxlavender rounded-4xl lg:grid lg:grid-cols-3 lg:gap-3">
+  <div class="py-5 bg-fauxlavender rounded-4xl md:grid-cols-2 md:grid lg:grid-cols-3 lg:gap-3">
     <!-- //? speciesName -->
     <div>
       <label class="label">
-        <span class="label-text text-black font-semibold">Species Name</span>
+        <span class="label-text text-black font-semibold mx-7">Species Name</span>
       </label>
       <input
         v-model="species.speciesname"
         type="text"
         placeholder="name"
-        class="input input-bordered"
+        class="input input-bordered mx-7"
       />
     </div>
     <!-- //? patterns -->
 
     <div>
       <label class="label">
-        <span class="label-text text-black font-semibold">Patterns</span>
+        <span class="label-text text-black font-semibold mx-7">Patterns</span>
       </label>
       <div class="dropdown">
-        <div tabindex="0" class="btn select-btn">{{ patternname }}</div>
+        <div tabindex="0" class="btn select-btn mx-7">{{ patternname }}</div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
@@ -35,7 +35,7 @@
     </div>
     <div>
       <button
-        class="btn confirm mt-9"
+        class="btn confirm mt-9 mx-7"
         @click="updateSpecies(species.speciesname)"
       >
         Confirm
