@@ -79,7 +79,7 @@
             class="btn btn-sm"
             @click="cat.dateOn = !cat.dateOn"
           >
-            New DOB
+            {{ date }}
           </button>
           <span class="text-black font-bold"></span>
           <div v-show="cat.dateOn" class="absolute">
@@ -97,14 +97,9 @@
 
         <!-- //? img -->
 
-        <td class="px-2 py-3">
+        <td class="px-2 py-3 flex flex-col">
           {{ cat.catimage }}
-          <input
-            v-show="cat.isOn"
-            v-model="theCat.catimage"
-            type="text"
-            class="w-32"
-          />
+          <input v-show="cat.isOn" type="file" @change="onFileChange" />
         </td>
         <!-- //? price -->
 
@@ -171,9 +166,11 @@ export default {
         speciesid: 0,
         speciesname: "",
       },
+      isOn: false,
       species: [],
       speciesName: "SELECT SPECIES",
-      date: "",
+      date: "New DOB",
+      selectedFile: null,
       modelConfig: {
         type: "string",
         mask: "YYYY-MM-DD", // Uses 'iso' if missing
@@ -203,7 +200,7 @@ export default {
         this.species = resSpecies.data;
       }
     }
-    // console.log(this.cats);
+    console.log(this.cats);
     // console.log(this.species);
   },
   methods: {
@@ -227,11 +224,19 @@ export default {
       location.reload();
     },
     editCat(id) {
-      this.cats[id - 1].isOn = !this.cats[id - 1].isOn;
+      this.cats.find(({ catid }) => catid === id).isOn = !this.cats.find(
+        ({ catid }) => catid === id
+      ).isOn;
     },
     updateDOB(date) {
       this.theCat.dob = date;
       this.date = date;
+    },
+    onFileChange(e) {
+      const img = e.target.files[0];
+
+      // this.img = URL.createObjectURL(img);
+      this.selectedFile = img;
     },
     async putCat() {
       // for (let x = 0; x < this.species.length; x++) {
@@ -249,6 +254,16 @@ export default {
         orders_orderid: this.theCat.orders_orderid,
         species_speciesid: this.theCat.speciesid,
       };
+      //  const formData = new FormData();
+      // formData.append("catname", this.theCat.catname);
+      // formData.append("myFile", this.selectedFile, this.selectedFile.name);
+      // formData.append("price", this.theCat.price);
+      // formData.append("gender", this.theCat.gender);
+      // formData.append("status", this.theCat.status);
+      // formData.append("dob", this.theCat.dob);
+      // formData.append("certificateimage", certificateImage);
+      // formData.append("orders_orderid", ordersOrderid);
+      // formData.append("species_speciesid", speciesId);
       await console.log(cat);
       // const res = await this.callApi("post", "/api/cats", cat);
       // if (res.status >= 200) {

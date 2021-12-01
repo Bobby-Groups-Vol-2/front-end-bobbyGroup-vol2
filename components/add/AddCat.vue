@@ -180,8 +180,8 @@ export default {
       this.img = URL.createObjectURL(img);
       this.selectedFile = img;
 
-      console.log(this.file);
-      console.log(this.img);
+      // console.log(this.file);
+      // console.log(this.img);
     },
     async confirmCat(
       catName,
