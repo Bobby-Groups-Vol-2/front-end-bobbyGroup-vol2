@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-evenly">
-    <div class="flex flex-col mt-10 md:grid grid-cols-3 md:gap-12 md:mt-10">
+    <div class="flex flex-col mt-10 w-2/3 md:w-4/5 lg:w-3/4 xl:w-3/5 md:grid grid-cols-3 md:gap-12 md:mt-10">
       <Card
         v-for="cat in cats"
         :key="cat.id"

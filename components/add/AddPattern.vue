@@ -4,24 +4,24 @@
       py-5
       bg-fauxlavender
       rounded-4xl
-      lg:grid lg:grid-cols-3
+      md:grid md:grid-cols-2 lg:grid-cols-3
       lg:gap-3
     "
   >
     <div>
       <label class="label">
-        <span class="label-text text-black font-semibold">Pattern Name</span>
+        <span class="label-text text-black font-semibold mx-7">Pattern Name</span>
       </label>
       <input
         v-model="pattern.patternname"
         type="text"
         placeholder="name"
-        class="input input-bordered"
+        class="input input-bordered mx-7"
       />
     </div>
     <div>
       <button
-        class="btn confirm mt-9"
+        class="btn confirm mt-9 mx-7"
         @click="updatePatterns(pattern.patternname)"
       >
         Confirm

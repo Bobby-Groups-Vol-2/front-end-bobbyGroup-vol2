@@ -23,8 +23,8 @@
     <div class="text-sm">
       <p class="card-title my-1" style="color: #c34f7c">{{ catName }}</p>
       <div class="w-32">
-        <p>Species: {{ catSpecies }}</p>
-        <p>price: {{ catPrice }}</p>
+        <p> <span class="font-semibold"> Species: </span> {{ catSpecies }}</p>
+        <p> <span class="font-semibold">price: </span> {{ catPrice }}</p>
       </div>
     </div>
     <button
@@ -62,7 +62,7 @@
     >
       เพิ่มเติม
     </button>
-    <div v-if="isOn" class="bg-white mt-3 absolute pt-1">
+    <div v-if="isOn" class="bg-white mt-3 absolute pt-1 h-4/5 ">
       <!-- header -->
       <div class="px-4 py-2 border-b border-gray-200 flex flex-row">
         <h2 class="text-xl font-semibold" style="color: #c34f7c">
@@ -80,13 +80,13 @@
       <!-- body -->
       <div id="textSm" class="w-full px-3 py-5">
         <ul>
-          <li>Gender: {{ catGender }}</li>
+          <li><span class="font-semibold">Gender:</span> {{ catGender }}</li>
           <li>
-            Date of Birth: <span id="textVerySm">{{ catDate }}</span>
+            <span class="font-semibold"> Date of Birth: </span>  <span id="textVerySm">{{ catDate }}</span>
           </li>
-          <li>Pattern: {{ catPattern }}</li>
-          <li>Status: <span v-html="catStatus"></span></li>
-          <li>Certificate: test</li>
+          <li> <span class="font-semibold"> Pattern: </span> {{ catPattern }}</li>
+          <li><span class="font-semibold"> Status: </span> <span v-html="catStatus"></span></li>
+          <li> <span class="font-semibold"> Certificate: </span> test</li>
         </ul>
       </div>
 

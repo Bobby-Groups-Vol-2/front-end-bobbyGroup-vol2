@@ -6,30 +6,30 @@
         lg:flex-row lg:justify-start
         justify-center
         text-lg
-        lg:text-2xl
+        lg:text-xl
         font-bold
       "
     >
-      <nuxt-link to="/cat" class="lg:mr-20 flex justify-center"
-        ><Logo class="lg:w-1/3 w-1/4"
+      <nuxt-link to="/cat" class="flex justify-center"
+        ><Logo class="lg:ml-10 lg:w-1/3 w-1/4 flex justify-center"
       /></nuxt-link>
       <div class="flex justify-center">
-        <div class="grid grid-cols-2 gap-0 lg:flex flex-row">
-          <nuxt-link to="/cat" class="m-5 lg:ml-20 lg:mt-10">Cat</nuxt-link>
+        <div class="grid grid-cols-2 gap-0 md:grid-cols-4 lg:gap-x-0 xl:gap-x-10 lg:flex md:gap-x-3 flex-row">
+          <nuxt-link to="/cat" class="m-5 lg:ml-10 lg:mt-10">Cat Store</nuxt-link>
           <!-- <nuxt-link to="/auth/login" class="ml-20 mt-10">login</nuxt-link> -->
 
-          <nuxt-link to="/order" class="m-5 lg:ml-10 lg:mt-10">Order</nuxt-link>
-          <nuxt-link to="/admin/cat" class="m-5 lg:ml-10 lg:mt-10"
-            >Cat Management</nuxt-link
+          <nuxt-link to="/order" class="m-5 lg:ml-5 lg:mt-10">Order History</nuxt-link>
+          <nuxt-link to="/admin/cat" class="m-5 lg:mt-10"
+            >Cat <br /> <span class=" lg:text-md">Management </span></nuxt-link
           >
-          <nuxt-link to="/admin/species" class="m-5 lg:ml-10 lg:mt-10"
-            >Species Management</nuxt-link
+          <nuxt-link to="/admin/species" class="m-5 lg:mt-10"
+            >Species <br /> <span class=" lg:text-md"> Management </span></nuxt-link
           >
         </div>
       </div>
 
       <div class="flex justify-center">
-        <div class="grid grid-cols-2 p-3 gap-5 lg:flex flex-row">
+        <div class="grid grid-cols-2 p-3 gap-5 md:gap-20 lg:gap-5 lg:flex flex-row">
           <nuxt-link
             to="/"
             class="
@@ -40,9 +40,8 @@
               register-button
               btn
               text-sm
-              lg:ml-20
-              xl:ml-52
-              lg:mt-8
+              
+              xl:ml-20 lg:mt-8
             "
           >
             Register
@@ -58,7 +57,8 @@
               log-in-button
               btn
               text-sm
-              lg:mx-5 lg:mt-8
+              xl:gap-x-5
+              lg:mt-8
             "
           >
             Log In</nuxt-link

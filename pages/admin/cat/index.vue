@@ -1,5 +1,5 @@
 <template>
-  <div class="my-20">
+  <div class="flex justify-center">
     <TableCatTable />
     <!-- <TablePatternTable /> -->
   </div>

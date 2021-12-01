@@ -1,7 +1,16 @@
 <template>
-  <div class="mt-10">
-    <table class="m-5 w-4/5 mx-auto bg-white text-gray-800">
-      <tr class="text-left border-b-2 border-gray-300">
+  <div class="all-card-holder w-full flex justify-center flex-col">
+       <div class="flex flex-col my-10">
+      <h1 class="mx-6 mb-4 font-bold text-2xl">Add Species</h1>
+      <add-species class="card"></add-species>
+      <h1 class="mx-6 mb-4 font-bold text-2xl my-10">Add Pattern</h1>
+      <add-pattern class="card "></add-pattern>
+      <h1 class="mx-6 mb-4 font-bold text-2xl my-10">Add Pattern to Species</h1>
+      <specis-patterns class="card "></specis-patterns>
+    </div>
+
+    <table class="m-5 w-4/5 mx-auto tr-heading all-text">
+      <tr class="tr-heading text-left border-b-2 border-gray-300">
         <th class="px-2 py-3">Species ID</th>
         <th class="px-2 py-3">Species Name</th>
         <th class="px-2 py-3">Pattern ID</th>
@@ -35,7 +44,7 @@
         </td>
         <td>
           <button
-            class="btn bg-red-600"
+            class="btn  border-0 bg-red-600"
             @click="deleteSpecies(specie.speciesid)"
           >
             Delete
@@ -43,14 +52,6 @@
         </td>
       </tr>
     </table>
-    <div class="flex flex-col justify-start ml-48 my-10">
-      <h1 class="ml-1 mb-4 font-bold text-3xl">Species</h1>
-      <add-species class="lg:w-2/3 w-1/2"></add-species>
-      <h1 class="ml-1 mb-4 font-bold text-3xl">Patterns</h1>
-      <add-pattern class="lg:w-2/3 w-1/2"></add-pattern>
-      <h1 class="ml-1 mb-4 font-bold text-3xl">Add Patterns to Species</h1>
-      <specis-patterns class="lg:w-2/3 w-1/2"></specis-patterns>
-    </div>
   </div>
 </template>
 
@@ -78,3 +79,38 @@ export default {
   },
 };
 </script>
+<style scoped>
+h1 {
+  color: #43362d;
+}
+@media (min-width: 320px) {
+  .all-card-holder {
+    width: 90%;
+  }
+}
+
+@media (min-width: 375px) {
+  .all-card-holder {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .all-card-holder {
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .all-card-holder {
+    width: 70%;
+  }
+}
+.tr-heading{
+  background-color: #43362d;
+    color: #faf2c5;
+}
+.all-text{
+      color: #43362d;
+
+}
+</style>
