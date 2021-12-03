@@ -10,6 +10,10 @@ export default {
   middleware({ store, redirect }) {
     if (store.$auth.user) redirect("/cat");
   },
+  created() {
+    // console.log(this.$auth.user);
+    // console.log(this.$auth.isLoggedIn);
+  },
 
   data() {
     return {

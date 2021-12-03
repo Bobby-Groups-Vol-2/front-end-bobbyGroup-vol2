@@ -27,7 +27,7 @@
             />
             <input
               v-model="login.password"
-              type="text"
+              type="password"
               placeholder="Password"
               class="m-5 p-4 my-3 rounded-4xl"
             />
@@ -49,12 +49,12 @@
               Sign up
             </nuxt-link>
           </div>
-          <button
+          <!-- <button
             class="login-button py-3 my-3 w-2/5 rounded-4xl btn text-md"
             type="submit"
           >
             Log out
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -62,7 +62,6 @@
 </template>
 <script>
 export default {
-  // middleware: "auth",
   layout: "noAuth",
 
   data() {
@@ -75,8 +74,8 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$auth.user);
-    console.log(this.$auth.loggedIn);
+    // console.log(this.$auth.user);
+    // console.log(this.$auth.loggedIn);
   },
   methods: {
     async userLogin() {
@@ -85,16 +84,35 @@ export default {
         password: this.login.password,
       };
       try {
-        console.log(payloads);
+        // console.log(payloads);
         // await this.$auth.loginWith("local", { data: this.login });
-        await this.$auth.loginWith("local", { data: payloads });
-        this.$router.push("/cat");
+
+        try {
+          await this.$auth.loginWith("local", { data: payloads });
+
+          this.$toast.success("Login success", {
+            position: "bottom-center",
+            duration: 500,
+          });
+          this.$router.push("/cat");
+        } catch {
+          this.$toast.global.my_error();
+          this.$toast.error("Error while authenticating");
+        }
+
+        // if (res.status === 400) {
+        //   // this.$toast.error("Fail Login", {
+        //   //   theme: "toasted-primary",
+        //   //   position: "bottom-center",
+        //   //   duration: 800,
+        //   // });
+        // }
+        console.log(this.$auth.user);
 
         // console.log(response);
 
-        console.log(this.login);
-        console.log(this.$auth.user);
-        console.log(this.$auth.loggedIn);
+        // console.log(this.login);
+        // console.log(this.$auth.loggedIn);
       } catch (e) {
         if (e) {
           this.errors = true;
@@ -167,6 +185,6 @@ html {
   -o-background-size: cover;
   background-size: cover;
   /* ไม่ติดดดด */
-  background-image:url("https://i.pinimg.com/564x/69/ca/7c/69ca7cd269e752eba1b869e83937b64b.jpg");
+  background-image: url("https://i.pinimg.com/564x/69/ca/7c/69ca7cd269e752eba1b869e83937b64b.jpg");
 }
 </style>

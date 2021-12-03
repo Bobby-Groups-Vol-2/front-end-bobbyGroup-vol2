@@ -15,6 +15,9 @@
       items-center
       justify-center
       overflow-visible
+      sm:w-48
+      lg:mx-32
+      xl:mx-72
     "
   >
     <div class="m-2 overflow-hidden">
@@ -23,8 +26,8 @@
     <div class="text-sm">
       <p class="card-title my-1" style="color: #c34f7c">{{ catName }}</p>
       <div class="w-32">
-        <p> <span class="font-semibold"> Species: </span> {{ catSpecies }}</p>
-        <p> <span class="font-semibold">price: </span> {{ catPrice }}</p>
+        <p><span class="font-semibold"> Species: </span> {{ catSpecies }}</p>
+        <p><span class="font-semibold">price: </span> {{ catPrice }}</p>
       </div>
     </div>
     <button
@@ -44,6 +47,7 @@
         font-bold
         text-2xl
       "
+      @click="orderCat(catId)"
     >
       จอง
     </button>
@@ -57,12 +61,13 @@
         mt-52
         ml-24
         text-sm
+        sm:mt-48 sm:ml-28
       "
       @click="isOn = !isOn"
     >
       เพิ่มเติม
     </button>
-    <div v-if="isOn" class="bg-white mt-3 absolute pt-1 h-4/5 ">
+    <div v-if="isOn" class="bg-white mt-3 absolute pt-1 h-4/5">
       <!-- header -->
       <div class="px-4 py-2 border-b border-gray-200 flex flex-row">
         <h2 class="text-xl font-semibold" style="color: #c34f7c">
@@ -82,11 +87,17 @@
         <ul>
           <li><span class="font-semibold">Gender:</span> {{ catGender }}</li>
           <li>
-            <span class="font-semibold"> Date of Birth: </span>  <span id="textVerySm">{{ catDate }}</span>
+            <span class="font-semibold"> Date of Birth: </span>
+            <span id="textVerySm">{{ catDate }}</span>
           </li>
-          <li> <span class="font-semibold"> Pattern: </span> {{ catPattern }}</li>
-          <li><span class="font-semibold"> Status: </span> <span v-html="catStatus"></span></li>
-          <li> <span class="font-semibold"> Certificate: </span> test</li>
+          <li>
+            <span class="font-semibold"> Pattern: </span> {{ catPattern }}
+          </li>
+          <li>
+            <span class="font-semibold"> Status: </span>
+            <span v-html="catStatus"></span>
+          </li>
+          <li><span class="font-semibold"> Certificate: </span> test</li>
         </ul>
       </div>
 
@@ -106,16 +117,28 @@ export default {
     catPattern: { type: String, default: "no pattern" },
     catStatus: { type: String, default: "no status" },
     catImg: { type: String, default: "" },
+    catId: { type: Number, default: 0 },
+    // method: { type: Function },
   },
+
   data() {
     return {
       isOn: false,
       img: this.catImg,
     };
   },
+
   computed: {
     catImage() {
       return this.$config.catimage + this.catImg;
+    },
+  },
+  mounted() {
+    // this.method();
+  },
+  methods: {
+    orderCat() {
+      this.$emit("onOrder");
     },
   },
 };

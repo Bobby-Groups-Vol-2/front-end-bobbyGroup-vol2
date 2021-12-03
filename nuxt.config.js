@@ -65,13 +65,19 @@ export default {
           // type: 'Bearer'
         },
         user: {
-          property: "user",
+          property: "",
           // autoFetch: true
         },
         endpoints: {
-          login: { url: "/api/users/logins", method: "post" },
-          // logout: { url: "/api/users/logout", method: "post" },
-          user: { url: "/api/users/me", method: "get" },
+          login: {
+            url: "/api/users/logins",
+            method: "post",
+          },
+          user: {
+            url: "/api/users/me",
+            method: "get",
+          },
+          logout: false,
         },
       },
     },

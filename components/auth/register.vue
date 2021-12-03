@@ -137,7 +137,6 @@ export default {
             position: "bottom-center",
             duration: 500,
           });
-          this.$router.push("./login");
         }
       } catch (err) {}
     },
