@@ -60,13 +60,9 @@ export default {
       local: {
         token: {
           property: "token",
-          // global: true,
-          // required: true,
-          // type: 'Bearer'
         },
         user: {
           property: "",
-          // autoFetch: true
         },
         endpoints: {
           login: {
@@ -86,6 +82,9 @@ export default {
       logout: "/",
       home: "/cat",
     },
+  },
+  router: {
+    middleware: ["auth"],
   },
   publicRuntimeConfig: {
     catimage: process.env.API_URL + "/api/images/",

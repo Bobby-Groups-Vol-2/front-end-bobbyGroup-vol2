@@ -3,3 +3,13 @@
     <TableSpeciesTable />
   </div>
 </template>
+<script>
+export default {
+  middleware({ store, redirect }) {
+    if (store.$auth.user.role === "user") {
+      redirect("./cat");
+    }
+  },
+};
+</script>
+

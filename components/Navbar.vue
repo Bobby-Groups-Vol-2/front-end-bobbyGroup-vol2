@@ -40,9 +40,9 @@
           >
           <nuxt-link
             v-if="$auth.user.role === 'user'"
-            to="/contributer"
+            to="/contributor"
             class="m-5 lg:ml-5 lg:mt-10"
-            >Contributer</nuxt-link
+            >Contributor</nuxt-link
           >
           <nuxt-link
             v-if="$auth.user.role === 'admin'"

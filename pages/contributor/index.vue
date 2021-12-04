@@ -68,7 +68,11 @@
 </template>
 <script>
 export default {
-  // middleware: "auth",
+  middleware({ store, redirect }) {
+    if (store.$auth.user.role === "admin") {
+      redirect("./cat");
+    }
+  },
 };
 </script>
 <style>

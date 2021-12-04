@@ -66,6 +66,12 @@
 
 <script>
 export default {
+  middleware({ store, redirect }) {
+    if (store.$auth.user.role === "admin") {
+      redirect("./cat");
+    }
+  },
+
   data() {
     return {
       orders: [],
