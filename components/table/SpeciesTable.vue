@@ -2,11 +2,11 @@
   <div class="all-card-holder w-full flex justify-center flex-col">
     <div class="flex flex-col my-10">
       <h1 class="mx-6 mb-4 font-bold text-2xl">Add Species</h1>
-      <add-species class="card"></add-species>
+      <add-species></add-species>
       <h1 class="mx-6 mb-4 font-bold text-2xl my-10">Add Pattern</h1>
-      <add-pattern class="card"></add-pattern>
+      <add-pattern></add-pattern>
       <h1 class="mx-6 mb-4 font-bold text-2xl my-10">Add Pattern to Species</h1>
-      <specis-patterns class="card"></specis-patterns>
+      <specis-patterns></specis-patterns>
     </div>
 
     <table class="m-5 w-4/5 mx-auto tr-heading all-text">

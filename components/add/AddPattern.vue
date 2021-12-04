@@ -4,13 +4,15 @@
       py-5
       bg-fauxlavender
       rounded-4xl
-      md:grid md:grid-cols-2 lg:grid-cols-3
-      lg:gap-3
+      md:grid md:grid-cols-2
+      lg:grid-cols-3 lg:gap-3
     "
   >
     <div>
       <label class="label">
-        <span class="label-text text-black font-semibold mx-7">Pattern Name</span>
+        <span class="label-text text-black font-semibold mx-7"
+          >Pattern Name</span
+        >
       </label>
       <input
         v-model="pattern.patternname"
@@ -54,19 +56,19 @@ export default {
 };
 </script>
 <style scoped>
-::placeholder{
+::placeholder {
   color: aliceblue;
 }
-input{
+input {
   background-color: #43362d;
 }
-.confirm{
+.confirm {
   background-color: olivedrab;
   border: 0ch;
   color: #faf2c5;
 }
-.confirm:hover{
-  background-color: #C34F7C;
+.confirm:hover {
+  background-color: #c34f7c;
   border: 0ch;
   color: #faf2c5;
 }

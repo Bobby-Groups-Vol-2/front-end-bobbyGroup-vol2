@@ -5,7 +5,8 @@
       pl-10
       bg-fauxlavender
       rounded-4xl
-      md:grid md:grid-cols-3 lg:gap-3
+      md:grid md:grid-cols-3
+      lg:gap-3
     "
   >
     <!-- //? speciesName -->
@@ -19,7 +20,7 @@
           tabindex="0"
           class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
         >
-          <li v-for="specie in species" :key="specie.speciesid" class="absolute">
+          <li v-for="specie in species" :key="specie.speciesid">
             <a @click="mapSpecies(specie.speciesid, specie.speciesname)">
               {{ specie.speciesname }}
             </a>
@@ -54,7 +55,10 @@
       </div>
     </div>
     <div>
-      <button class="btn bg-green-600 border-green-600 mt-9 confirm" @click="update()">
+      <button
+        class="btn bg-green-600 border-green-600 mt-9 confirm"
+        @click="update()"
+      >
         Confirm
       </button>
     </div>
@@ -105,14 +109,14 @@ export default {
 };
 </script>
 <style scoped>
-.btn{
-    color: #faf2c5;
+.btn {
+  color: #faf2c5;
 }
-.select-btn{
+.select-btn {
   background-color: #9e5f43;
   border: 0cm;
 }
-.select-btn:hover{
+.select-btn:hover {
   background-color: #43362d;
   color: #faf2c5;
   border: 0cm;

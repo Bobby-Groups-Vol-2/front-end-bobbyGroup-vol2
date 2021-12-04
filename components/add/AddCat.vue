@@ -29,9 +29,10 @@
       </div>
       <!-- //? Status -->
       <!-- <div>
-        <label class="label">
+        <l            class="absolute"
+abel class="label">
           <span class="label-text text-black">Status</span>
-        </label>
+        </l>
         <input
           v-model="cat.status"
           type="text"

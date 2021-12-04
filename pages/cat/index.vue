@@ -10,7 +10,7 @@
             class="btn register-button px-5"
             @click="createOrder"
           >
-            Creat Order
+            Create Order
           </button>
         </div>
         <div class="flex flex-col text-black">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="text-xl mt-5">
-          <label>Empty</label>
+          <label>Both</label>
           <input v-model="search.name" type="radio" value="" />
           <label>Male</label>
           <input v-model="search.name" type="radio" value="Male" />
@@ -49,15 +49,16 @@
     <div
       class="
         flex flex-col
+        items-center
         mt-10
         w-2/3
         md:w-4/5
         lg:w-3/4
         xl:w-3/5
-        md:grid md:mt-10
         sm:ml-28 sm:grid sm:grid-cols-2
-        lg:grid-cols-4 lg:mx-1
-        xl:grid-cols-4 xl:gap-16
+        md:mt-10
+        lg:grid-cols-4 lg:mx-1 lg:gap-16
+        xl:grid-cols-4 xl:gap-x-48
       "
     >
       <Card
@@ -113,7 +114,8 @@ export default {
           post.catname.toLowerCase().includes(this.search.name.toLowerCase()) ||
           post.species.speciesname
             .toLowerCase()
-            .includes(this.search.name.toLowerCase())
+            .includes(this.search.name.toLowerCase()) ||
+          post.gender.toLowerCase().includes(this.search.name.toLowerCase())
         // ||post.price.includes(this.search.name.toLowerCase)
         // post.price.toLowerCase().includes(this.searchName.toLowerCase())
       );

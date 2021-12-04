@@ -16,8 +16,8 @@
       justify-center
       overflow-visible
       sm:w-48
-      lg:mx-32
-      xl:mx-72
+      lg:mx-28
+      md:mt-10
     "
   >
     <div class="m-2 overflow-hidden">
@@ -97,7 +97,7 @@
             <span class="font-semibold"> Status: </span>
             <span v-html="catStatus"></span>
           </li>
-          <li><span class="font-semibold"> Certificate: </span> test</li>
+          <!-- <li><span class="font-semibold"> Certificate: </span> test</li> -->
         </ul>
       </div>
 

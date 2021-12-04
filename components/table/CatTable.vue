@@ -15,7 +15,7 @@
           <th class="px-10 py-3">DOB</th>
           <th class="px-8 py-3">Image</th>
           <th class="px-8 py-3">Price</th>
-          <th class="px-8 py-3">Certificate</th>
+          <!-- <th class="px-8 py-3">Certificate</th> -->
           <th class="px-8 py-3">status</th>
           <th class="px-8 py-3">Edit Cat</th>
           <th class="px-2 py-3">Delete Cat</th>
@@ -151,10 +151,10 @@
             />
           </td>
           <!-- //? Cer -->
-
+          <!-- 
           <td class="px-2 py-3">
             <span>{{ certificateCheck(cat.certificateimage) }}</span>
-          </td>
+          </td> -->
           <!-- //? status -->
 
           <td class="px-2 py-3">

@@ -1,9 +1,20 @@
 <template>
-  <div class="py-5 bg-fauxlavender rounded-4xl md:grid-cols-2 md:grid lg:grid-cols-3 lg:gap-3">
+  <div
+    class="
+      py-5
+      bg-fauxlavender
+      rounded-4xl
+      md:grid-cols-2 md:grid
+      lg:grid-cols-3 lg:gap-3
+      xl:gap-16
+    "
+  >
     <!-- //? speciesName -->
     <div>
       <label class="label">
-        <span class="label-text text-black font-semibold mx-7">Species Name</span>
+        <span class="label-text text-black font-semibold mx-7"
+          >Species Name</span
+        >
       </label>
       <input
         v-model="species.speciesname"
@@ -90,14 +101,14 @@ export default {
 };
 </script>
 <style scoped>
-.btn{
-    color: #faf2c5;
+.btn {
+  color: #faf2c5;
 }
-.select-btn{
+.select-btn {
   background-color: #9e5f43;
   border: 0cm;
 }
-.select-btn:hover{
+.select-btn:hover {
   background-color: #43362d;
   color: #faf2c5;
   border: 0cm;
