@@ -18,19 +18,36 @@
           </p>
         </div>
         <div class="bg-white mb-5 px-5">
-          <form class="flex flex-col w-80" @submit.prevent="userLogin">
-            <input
-              v-model="login.username"
-              type="text"
-              placeholder="Username"
-              class="m-5 p-4 mt-6 mb-3 rounded-4xl"
-            />
-            <input
-              v-model="login.password"
-              type="password"
-              placeholder="Password"
-              class="m-5 p-4 my-3 rounded-4xl"
-            />
+          <form
+            class="flex flex-col w-80 text-black"
+            @submit.prevent="userLogin"
+          >
+            <ValidationProvider
+              v-slot="{ errors }"
+              rules="required"
+              class="flex flex-col"
+            >
+              <input
+                v-model="login.username"
+                type="text"
+                placeholder="Username"
+                class="m-5 p-4 mt-6 mb-3 rounded-4xl"
+              />
+              <span class="text-red-600">{{ errors[0] }}</span>
+            </ValidationProvider>
+            <ValidationProvider
+              v-slot="{ errors }"
+              rules="required"
+              class="flex flex-col"
+            >
+              <input
+                v-model="login.password"
+                type="password"
+                placeholder="Password"
+                class="m-5 p-4 my-3 rounded-4xl border-gray-400 border-2"
+              />
+              <span class="text-red-600">{{ errors[0] }}</span>
+            </ValidationProvider>
             <div class="flex justify-center">
               <button
                 class="login-button py-3 my-3 w-2/5 rounded-4xl btn text-md"
@@ -61,7 +78,12 @@
   </div>
 </template>
 <script>
+import { ValidationProvider } from "vee-validate";
+
 export default {
+  components: {
+    ValidationProvider,
+  },
   layout: "noAuth",
 
   data() {
