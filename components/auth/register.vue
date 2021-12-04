@@ -9,7 +9,7 @@
         </div>
         <div class="bg-white mb-5 px-5 flex flex-col">
           <form
-            class="flex flex-col justify-center"
+            class="flex flex-col justify-center text-black"
             @submit.prevent="
               register(user.username, user.password, user.address, user.tel)
             "
@@ -129,7 +129,7 @@ export default {
         address: userAddress,
         tel: parseInt(userTel),
       };
-      console.log(user);
+      // console.log(user);
       try {
         const res = await this.callApi("post", "/api/users", user);
         if (res.status >= 200) {
@@ -137,6 +137,7 @@ export default {
             position: "bottom-center",
             duration: 500,
           });
+          this.$router.push("/");
         }
       } catch (err) {}
     },

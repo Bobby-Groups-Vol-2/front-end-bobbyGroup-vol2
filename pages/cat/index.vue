@@ -135,7 +135,7 @@ export default {
     const orderNum = await this.callApi("get", "/api/orders");
     this.orderNumber = orderNum.data;
     // this.showNumOrder = this.orderNumber.length;
-    console.log(this.cats);
+    // console.log(this.cats);
   },
   methods: {
     async createOrder() {

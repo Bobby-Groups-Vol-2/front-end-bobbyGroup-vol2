@@ -54,8 +54,8 @@
                   :cat-img="cat.catimage"
                 />
               </div>
-              <span>{{ totalOrder }}</span
-              ><button>Check out</button>
+              <!-- <span>{{ totalOrder }}</span
+              ><button>Check out</button> -->
             </div>
           </div>
         </div>
@@ -102,10 +102,9 @@ export default {
     }
     console.log(this.cats);
     // const price = this.cats.map(this.amount).reduce(this.sum);
-    const price = this.cats
-      .map((item) => item.cats.map((item) => item.price))
-      .reduce((prev, next) => prev + next);
-    console.log(price);
+    // const price = this.cats.map((item) => item.cats.map((item) => item.price));
+    // console.log(price);
+
     const resPats = await this.callApi("get", "/api/patterns");
     if (resPats.status === 200) {
       this.patterns = resPats.data;
