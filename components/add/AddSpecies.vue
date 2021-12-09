@@ -26,10 +26,10 @@
     <!-- //? patterns -->
 
     <div>
-      <label class="label">
+      <!-- <label class="label">
         <span class="label-text text-black font-semibold mx-7">Patterns</span>
-      </label>
-      <div class="dropdown">
+      </label> -->
+      <!-- <div class="dropdown">
         <div tabindex="0" class="btn select-btn mx-7">{{ patternname }}</div>
         <ul
           tabindex="0"
@@ -42,7 +42,7 @@
             >
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
     <div>
       <button
@@ -84,7 +84,6 @@ export default {
       };
       const res = await this.callApi("post", "/api/species", species);
       if (res.status >= 200) {
-        await this.callApi("post", "/api/owns", this.owns);
         alert("Success");
         location.reload();
       }
