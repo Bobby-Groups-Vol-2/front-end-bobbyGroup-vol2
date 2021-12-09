@@ -5,6 +5,7 @@
 <script>
 export default {
   layout: "noAuth",
+  auth: false,
 };
 </script>
 <style>

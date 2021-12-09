@@ -110,13 +110,17 @@ export default {
         // await this.$auth.loginWith("local", { data: this.login });
 
         try {
-          await this.$auth.loginWith("local", { data: payloads });
-
-          this.$toast.success("Login success", {
-            position: "bottom-center",
-            duration: 500,
-          });
-          this.$router.push("/cat");
+          const login = await this.$auth.loginWith("local", { data: payloads });
+          if (login.status >= 200) {
+            this.$toast.success("Login success", {
+              position: "bottom-center",
+              duration: 500,
+            });
+            this.$router.push("/cat");
+          }
+          if (login.status === 400) {
+            this.$toast.error("Error while authenticating");
+          }
         } catch {
           this.$toast.global.my_error();
           this.$toast.error("Error while authenticating");
@@ -129,7 +133,7 @@ export default {
         //   //   duration: 800,
         //   // });
         // }
-        console.log(this.$auth.user);
+        // console.log(this.$auth.user);
 
         // console.log(response);
 
