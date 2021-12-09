@@ -137,7 +137,12 @@
 
           <td class="px-2 py-3 flex flex-col">
             {{ cat.catimage }}
-            <input v-show="cat.isOn" type="file" @change="onFileChange" />
+            <input
+              v-show="cat.isOn"
+              accept="image/*"
+              type="file"
+              @change="onFileChange"
+            />
           </td>
           <!-- //? price -->
 
@@ -303,7 +308,7 @@ export default {
       //   orders_orderid: this.theCat.orders_orderid,
       //   species_speciesid: this.theCat.speciesid,
       // };
-      console.log(id);
+      // console.log(id);
       const formData = new FormData();
       formData.append("catname", this.theCat.catname);
       formData.append("myFile", this.selectedFile, this.selectedFile.name);
@@ -314,7 +319,7 @@ export default {
       formData.append("certificateimage", this.theCat.certificateimage);
       formData.append("orders_orderid", this.theCat.orders_orderid);
       formData.append("species_speciesid", this.theCat.speciesid);
-      await console.log(formData);
+      // await console.log(formData);
       // const res =
       await this.callApi("put", "/api/cats/" + id, formData);
       // if (res.status >= 200) {

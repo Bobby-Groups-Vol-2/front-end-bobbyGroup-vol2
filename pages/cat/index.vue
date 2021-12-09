@@ -186,7 +186,7 @@ export default {
           // this.userOrdered.push(ordered)
           const res = await this.callApi("put", "/api/cats/" + id, formData);
           if (res.status >= 200) {
-            this.$toast.success("Login success", {
+            this.$toast.success("จองสำเร็จ", {
               position: "bottom-center",
               duration: 1000,
             });
