@@ -110,7 +110,7 @@ export default {
   methods: {
     deleteSpecies(id) {
       this.callApi("delete", "/api/species/" + id);
-      // location.reload();
+      location.reload();
     },
     editSpecies(id) {
       this.species.find(({ speciesid }) => speciesid === id).isOn =
